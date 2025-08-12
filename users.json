@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "role": "Project Manager",
+    "email": "alice.johnson@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/women/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Michael Smith",
+    "role": "Software Engineer",
+    "email": "michael.smith@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/men/2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sophia Williams",
+    "role": "UI/UX Designer",
+    "email": "sophia.williams@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/women/3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "David Brown",
+    "role": "DevOps Engineer",
+    "email": "david.brown@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/men/4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Emma Davis",
+    "role": "QA Analyst",
+    "email": "emma.davis@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/women/5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "James Wilson",
+    "role": "Backend Developer",
+    "email": "james.wilson@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/men/6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Olivia Martinez",
+    "role": "Product Owner",
+    "email": "olivia.martinez@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/women/7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Ethan Garcia",
+    "role": "Full Stack Developer",
+    "email": "ethan.garcia@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/men/8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Isabella Rodriguez",
+    "role": "Frontend Developer",
+    "email": "isabella.rodriguez@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/women/9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Liam Anderson",
+    "role": "Scrum Master",
+    "email": "liam.anderson@example.com",
+    "profileImage": "https://randomuser.me/api/portraits/men/10.jpg"
+  }
+]

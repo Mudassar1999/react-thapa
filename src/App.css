@@ -64,3 +64,8 @@
   width: 50px;
   border-radius: 30px;
 }
+
+.active {
+  background-color: black;
+  color: #61dafbaa;
+}

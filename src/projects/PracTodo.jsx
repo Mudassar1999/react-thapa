@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import React, { use, useContext, useEffect, useState } from "react";
 import { MdAddBox } from "react-icons/md";
 import { MdDeleteForever } from "react-icons/md";
-import { getItem, setItem } from "./../hooks/localStorage";
+import { getItem, setItem } from "../helper/localStorage";
+import { TestContext } from "../hooks/contextAPI";
 const PracTodo = () => {
   const [inputValue, setInputValue] = useState("");
   const [list, setList] = useState(getItem);
   const [error, setError] = useState("");
   const [time, setTime] = useState("");
+  const name = use(TestContext);
   setItem(list);
 
   const handleOnChange = (e) => {
@@ -44,6 +46,7 @@ const PracTodo = () => {
   return (
     <>
       <div className="m-auto grid">
+        {/* <h3>My name is {name}</h3> */}
         <h1>Todo App</h1>
         <h3>{time}</h3>
         <form action="" onSubmit={handleOnSubmit}>
@@ -104,7 +107,7 @@ const PracTodo = () => {
             className="my-5 ml-48 bg-black text-white p-2 rounded"
             onClick={() => setList([])}
           >
-            Claear
+            Clear
           </button>
         </div>
       </div>

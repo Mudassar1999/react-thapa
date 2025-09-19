@@ -1,68 +1,148 @@
-/* eslint-disable no-unused-vars */
-const links = [
-  { name: "Open roles", href: "#" },
-  { name: "Internship program", href: "#" },
-  { name: "Our values", href: "#" },
-  { name: "Meet our leadership", href: "#" },
-];
-const stats = [
-  { name: "Offices worldwide", value: "12" },
-  { name: "Full-time colleagues", value: "300+" },
-  { name: "Hours per week", value: "40" },
-  { name: "Paid time off", value: "Unlimited" },
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router";
+
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact Us", href: "/contactUs" },
+  { name: "Products", href: "/products" },
 ];
 
-export default function Example() {
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
+export default function Header() {
   return (
-    <div className="relative isolate overflow-hidden bg-gray-700 py-24 sm:py-32 pt-16">
-      <div
-        aria-hidden="true"
-        className="absolute -top-52 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
-      >
-        <div
-        //   style={{
-        //     clipPath:
-        //       "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-        //   }}
-          className="aspect-1097/845 w-274.25 bg-linear-to-tr from-[#819067] to-[#B1AB86] opacity-20"
-        />
-      </div>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-            Hello, My name is
-          </h2>
-          <h2 className="text-5xl font-semibold tracking-tight text-white sm:text-5xl">
-            Mudassar Ansari
-          </h2>
-          <h2 className="text-5xl text-gray-300  tracking-tight  sm:text-xl/8">
-            MERN Stack Developer | Building Scalable & Real-Time Applications
-          </h2>
-          <p className="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">
-            “I specialize in developing robust applications using the MERN Stack
-            and cloud-native DevOps practices.”
-          </p>
-        </div>
-        {/* <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-            {links.map((link) => (
-              <a key={link.name} href={link.href}>
-                {link.name} <span aria-hidden="true">&rarr;</span>
-              </a>
-            ))}
+    <Disclosure as="nav" className="relative bg-black">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            {/* Mobile menu button*/}
+            <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+              <span className="absolute -inset-0.5" />
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon
+                aria-hidden="true"
+                className="block size-6 group-data-open:hidden"
+              />
+              <XMarkIcon
+                aria-hidden="true"
+                className="hidden size-6 group-data-open:block"
+              />
+            </DisclosureButton>
           </div>
-          <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.name} className="flex flex-col-reverse gap-1">
-                <dt className="text-base/7 text-gray-300">{stat.name}</dt>
-                <dd className="text-4xl font-semibold tracking-tight text-white">
-                  {stat.value}
-                </dd>
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex shrink-0 items-center">
+              <img
+                alt="Your Company"
+                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+                className="h-8 w-auto"
+              />
+            </div>
+            <div className="hidden sm:ml-6 sm:block">
+              <div className="flex space-x-4">
+                {navigation.map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.href}
+                    aria-current={item.current ? "page" : undefined}
+                    className={classNames(
+                      "text-gray-300 hover:bg-white/5 hover:text-white",
+                      "rounded-md px-3 py-2 text-sm font-medium"
+                    )}
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
               </div>
-            ))}
-          </dl>
-        </div> */}
+            </div>
+          </div>
+          <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <button
+              type="button"
+              className="relative rounded-full p-1 text-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
+            >
+              <span className="absolute -inset-1.5" />
+              <span className="sr-only">View notifications</span>
+              <BellIcon aria-hidden="true" className="size-6" />
+            </button>
+
+            {/* Profile dropdown */}
+            <Menu as="div" className="relative ml-3">
+              <MenuButton className="relative flex rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                <span className="absolute -inset-1.5" />
+                <span className="sr-only">Open user menu</span>
+                <img
+                  alt=""
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                  className="size-8 rounded-full bg-gray-800 outline -outline-offset-1 outline-white/10"
+                />
+              </MenuButton>
+
+              <MenuItems
+                transition
+                className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg outline outline-black/5 transition data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in"
+              >
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Your profile
+                  </a>
+                </MenuItem>
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Settings
+                  </a>
+                </MenuItem>
+                <MenuItem>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Sign out
+                  </a>
+                </MenuItem>
+              </MenuItems>
+            </Menu>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <DisclosurePanel className="sm:hidden">
+        <div className="space-y-1 px-2 pt-2 pb-3">
+          {navigation.map((item) => (
+            <NavLink
+              key={item.name}
+              as="a"
+              to={item.href}
+              aria-current={item.current ? "page" : undefined}
+              className={classNames(
+                item.current
+                  ? "bg-gray-900 text-white"
+                  : "text-gray-300 hover:bg-white/5 hover:text-white",
+                "block rounded-md px-3 py-2 text-base font-medium"
+              )}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+        </div>
+      </DisclosurePanel>
+    </Disclosure>
   );
 }
